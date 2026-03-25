@@ -34,7 +34,7 @@ Create the environment and install dependencies:
 conda create -n tasot python=3.10 -y
 conda activate tasot
 pip install -r requirements.txt
-````
+```
 
 
 ## Pipeline
@@ -49,14 +49,14 @@ scripts/captioning_pipeline/
 2. cut_video_windows.py
 3. generate_gemini_captions.py
 4. merge_window_captions.py
-````
+```
 ### 2. Feature extraction
 
 ```text
 scripts/feature_extraction/
-5. embed_clip_captions.py
-6. extract_dinov3_features.py
-````
+- embed_clip_captions.py
+- extract_dinov3_features.py
+```
 
 ### 3. Training
 
@@ -65,7 +65,7 @@ scripts/run_scripts/
 - run_cholec80_dinov3_clip.sh
 - run_autolapro_dinov3_clip.sh
 - run_mb140_dinov3_clip.sh
-````
+```
 
 
 
