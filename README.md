@@ -22,7 +22,7 @@ The overall TASOT pipeline is illustrated below:
   <img src="tasot_overview.png" alt="TASOT overview" width="900"/>
 </p>
 
-**Figure:** Overview of TASOT. Surgical videos are divided into temporal windows, captions are generated for each clip, visual features are extracted with DINOv3, textual features are extracted with CLIP, and both modalities are fused in the optimal transport objective for unsupervised temporal segmentation.
+**Figure:** Overview of TASOT. Surgical videos are divided into temporal windows and processed by a vision–language model to generate structured temporal captions. Visual features (DINOv3) and temporally aligned textual features (CLIP) are integrated within the TASOT model, where a weighted multimodal cost is used for unsupervised surgical temporal segmentation.
 
 
 
