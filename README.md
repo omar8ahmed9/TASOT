@@ -24,100 +24,71 @@ The overall TASOT pipeline is illustrated below:
 
 **Figure:** Overview of TASOT. Surgical videos are divided into temporal windows, captions are generated for each clip, visual features are extracted with DINOv3, textual features are extracted with CLIP, and both modalities are fused in the optimal transport objective for unsupervised temporal segmentation.
 
----
 
-## Repository Structure
-
-```text
-TASOT/
-├── README.md
-├── requirements.txt
-├── tasot_overview.png
-├── src/
-│   ├── asot.py
-│   ├── metrics.py
-│   ├── train.py
-│   ├── utils.py
-│   └── video_dataset.py
-├── scripts/
-│   ├── captioning_pipeline/
-│   │   ├── cut_video_windows.py
-│   │   ├── generate_gemini_captions.py
-│   │   ├── generate_window_plans.py
-│   │   └── merge_window_captions.py
-│   ├── feature_extraction/
-│   │   ├── embed_clip_captions.py
-│   │   └── extract_dinov3_features.py
-│   └── run_scripts/
-│       ├── run_autolapro_dinov3_clip.sh
-│       ├── run_cholec80_dinov3_clip.sh
-│       └── run_mb140_dinov3_clip.sh
-└── data/
-    ├── AutoLaparo_Phase_1fps/
-    ├── Cholec80_Phase_1fps/
-    └── MultiBypass140/
-```
-
----
 
 ## Installation
 
 Create the environment and install dependencies:
 
+```bash
 conda create -n tasot python=3.10 -y
 conda activate tasot
 pip install -r requirements.txt
+````
 
----
 
 ## Pipeline
 
-1. Captioning pipeline
+### 1. Captioning pipeline
 
 Run the scripts in this order:
 
+```text
 scripts/captioning_pipeline/
 1. generate_window_plans.py
 2. cut_video_windows.py
 3. generate_gemini_captions.py
 4. merge_window_captions.py
+````
+### 2. Feature extraction
 
-2. Feature extraction
-
+```text
 scripts/feature_extraction/
 5. embed_clip_captions.py
 6. extract_dinov3_features.py
+````
 
-3. Training
+### 3. Training
 
+```text
 scripts/run_scripts/
 - run_cholec80_dinov3_clip.sh
 - run_autolapro_dinov3_clip.sh
 - run_mb140_dinov3_clip.sh
+````
 
 
----
 
 ## Datasets
 
 This repository supports:
-
-Cholec80
-AutoLaparo
-MultiBypass140
+- Cholec80
+- AutoLaparo
+- MultiBypass140
 
 Please prepare the datasets according to their official access policies and place files in the expected folder structure.
 
 
----
 
 ## Citation
 
 If you use this repository in your research, please cite:
 
+```bibtex
 @article{mohamed2026multimodal,
   title={Multimodal Optimal Transport for Unsupervised Temporal Segmentation in Surgical Robotics},
   author={Mohamed, Omar and Fazzari, Edoardo and Al-Naji, Ayah and Alhadhrami, Hamdan and Hableel, Khalfan and Alkindi, Saif and Stefanini, Cesare},
   journal={arXiv preprint arXiv:2602.24138},
   year={2026}
 }
+```
